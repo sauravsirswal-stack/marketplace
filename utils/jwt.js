@@ -1,0 +1,10 @@
+import jwt from "jsonwebtoken"
+import env from "../config/env.js"
+
+export function signJwt(payload, expiresIn = "15m") {
+  return jwt.sign(payload, env.JWT_SECRET, { expiresIn })
+}
+
+export function verifyJwt(token) {
+  return jwt.verify(token, env.JWT_SECRET)
+}
