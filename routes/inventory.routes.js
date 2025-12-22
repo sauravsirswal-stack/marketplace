@@ -4,8 +4,8 @@ import {create, list, update} from "../controllers/inventory.controller.js"
 
 const router = express.Router()
 
-router.post("/", authMiddleware, create)
-router.get("/", authMiddleware, list)
-router.put("/:id", authMiddleware, update)
+router.post("/create", authMiddleware, create)
+router.get("/list", authMiddleware, list)
+router.put("/update/:id", authMiddleware, update)
 
 export default router

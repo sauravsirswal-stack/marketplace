@@ -4,6 +4,7 @@ import env from "./env.js"
 const userDbConnections = new Map()
 
 export async function getUserDb(userId) {
+  userDbConnections.get(userId.toString())
   if (userDbConnections.has(userId.toString())) {
     return userDbConnections.get(userId.toString())
   }

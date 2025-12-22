@@ -23,16 +23,16 @@ inventorySchema.post("save", async function (doc) {
     after: doc.toObject(),
   })
 })
-
 export function getInventoryModel(userDb, userId) {
   if (userDb.models.Inventory) return userDb.models.Inventory
 
-  const schema = inventorySchema
+  const schema = inventorySchema.clone()
   schema.pre("save", function (next) {
     this._userId = userId
     this._before = this.isNew ? null : this.toObject()
-    next()
+    // next()
   })
 
   return userDb.model("Inventory", schema)
 }
+

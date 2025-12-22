@@ -31,6 +31,12 @@ export async function findNearbyUsers({
       $project: {
         email: 0,
         passwordHash: 0,
+        role  :0 ,
+        emailVerified : 0,
+        "location.type" : 0,
+        activeAccount : 0,
+        createdAt: 0,
+        updatedAt: 0,
         __v: 0,
       },
     },

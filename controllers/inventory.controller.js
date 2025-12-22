@@ -6,10 +6,13 @@ import {
 
 export async function create(req, res) {
   try {
+    if(!req.user){
+      return res.status(401).json({ error: "Unauthorized" })
+    }
     const item = await createInventory(req.user, req.body)
     res.status(201).json(item)
   } catch (err) {
-    res.status(400).json({ error: err.message })
+    res.status(400).json({ error: err.message})
   }
 }
 

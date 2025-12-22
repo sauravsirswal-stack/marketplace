@@ -2,6 +2,7 @@ import { getUserDb } from "../config/user.db.js"
 import { getInventoryModel } from "../models/user/inventory.model.js"
 
 export async function createInventory(user, data) {
+  // console.log(user._id)
   const userDb = await getUserDb(user._id)
   const Inventory = getInventoryModel(userDb, user._id)
   return Inventory.create(data)
