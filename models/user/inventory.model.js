@@ -30,7 +30,7 @@ export function getInventoryModel(userDb, userId) {
   schema.pre("save", function (next) {
     this._userId = userId
     this._before = this.isNew ? null : this.toObject()
-    // next()
+    next()
   })
 
   return userDb.model("Inventory", schema)

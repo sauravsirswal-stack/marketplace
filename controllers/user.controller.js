@@ -33,10 +33,12 @@ export async function getUserInventory(req, res) {
     const userDb = await getUserDb(id)
 
     const Inventory = getInventoryModel(userDb, id)
-
     const inventory = await Inventory.find({ active: true }, {active : 0, __v : 0, createdAt : 0}).sort({
       createdAt: -1,
     })
+    if(inventory.length === 0){
+      return res.status(404).json({ message: "No inventory found for this user" })
+    }
 
     return res.json({
       userId: id,
