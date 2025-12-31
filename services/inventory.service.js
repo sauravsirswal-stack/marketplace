@@ -25,6 +25,6 @@ export async function updateInventory(user, id, data) {
   const item = await Inventory.findById(id)
   if (!item) throw new Error("Item not found")
 
-  Object.assign(item, data)
+  Object.assign(item, data) 
   return item.save()
 }

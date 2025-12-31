@@ -20,7 +20,7 @@ inventorySchema.post("save", async function (doc) {
     entityType: "INVENTORY",
     entityId: doc._id,
     before: doc._before || null,
-    after: doc.toObject(),
+    after: doc.toObject(),                                                                                           
   })
 })
 export function getInventoryModel(userDb, userId) {
